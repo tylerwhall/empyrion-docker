@@ -1,0 +1,13 @@
+version: '2'
+services:
+  server:
+    #image: bitr/empyrion-server
+    build: .
+    restart: unless-stopped
+    ports:
+      - 30000-30003/udp
+      - 30004:30004/tcp
+    volumes:
+      - /volumes/empyrion:/home/user/Steam
+    environment:
+      - BETA=1
